@@ -1,0 +1,5 @@
+regal (0.1) stable; urgency=medium
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- jepler <jepler@babs.unpythonic.net>  Fri, 19 Sep 2014 21:23:43 -0500

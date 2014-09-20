@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+.PHONY: $(wildcard *)
+%:
+	dh $@ --parallel
+
+ARCH=$(shell dpkg-qrchitecture -qDEB_BUILD_MULTIARCH)
+
+override_dh_auto_clean:
+	rm -rf bin lib tmp
+
+LIBREGAL := $(CURDIR)/debian/libregal/usr
+LIBREGALDEV := $(CURDIR)/debian/libregal-dev/usr
+REGALPROGS := $(CURDIR)/debian/libregal-progs/usr
+override_dh_auto_install:
+
+	mkdir -p ${LIBREGALDEV}/include/GL
+	mkdir -p ${LIBREGALDEV}/lib/${ARCH}
+	cp include/GL/* ${LIBREGALDEV}/include/GL/
+	cp lib/linux/*.so ${LIBREGALDEV}/lib/${ARCH}/
+
+	mkdir -p ${LIBREGAL}/lib
+	cp lib/linux/*.so.* ${LIBREGAL}/lib/${ARCH}/
+
+	mkdir -p ${REGALPROGS}/bin
+	cp bin/linux/* ${REGALPROGS}/bin/

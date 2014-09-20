@@ -1,0 +1,39 @@
+Source: regal
+Maintainer: Jeff Epler <jepler@unpythonic.net>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: libegl1-mesa-dev
+
+Package: libregal
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Regal is a user-space OpenGL layer
+ .
+ Regal supports OpenGL 2.x, 3.x, 4.x, Core contexts and ES 2.0. Regal
+ implements OpenGL loading, emulation for ES and Core contexts and tools for
+ debugging.
+ .
+ This package contains the runtime libraries
+
+Package: libregal-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Regal is a user-space OpenGL layer
+ .
+ Regal supports OpenGL 2.x, 3.x, 4.x, Core contexts and ES 2.0. Regal
+ implements OpenGL loading, emulation for ES and Core contexts and tools for
+ debugging.
+ .
+ This package contains the development files.
+
+Package: libregal-progs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Regal is a user-space OpenGL layer
+ .
+ Regal supports OpenGL 2.x, 3.x, 4.x, Core contexts and ES 2.0. Regal
+ implements OpenGL loading, emulation for ES and Core contexts and tools for
+ debugging.
+ .
+ This package contains information and demo programs
