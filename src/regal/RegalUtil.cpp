@@ -185,8 +185,16 @@ const char *libraryLocation(const Library &library)
 
 #if REGAL_SYS_GLX
 
+#if defined(__arm__)
+      const char * const candidates[] = {
+        "/usr/lib/arm-linux-gnueabihf/libGL.so.1",       // debian jessie, maybe
+        "/usr/lib/arm-linux-gnueabihf/mesa/libGL.so.1",  // Ubuntu 14.04 on odroid u3
+      };
+#endif
+
 #if defined(__x86_64__) || defined(__x86_64)
       const char * const candidates[] = {
+        "/usr/lib/x86_64-linux-gnu/libGL.so.1",       // Debian Jessie
         "/usr/lib/amd64/libGL.so.1",                  // Solaris
         "/usr/lib64/nvidia/libGL.so.1",               // RedHat
         "/usr/lib64/libGL.so.1",                      // RedHat
@@ -198,6 +206,7 @@ const char *libraryLocation(const Library &library)
       };
 #else
       const char * const candidates[] = {
+        "/usr/lib/i386-linux-gnu/libGL.so.1",         // Debian Jessie
         "/usr/lib/nvidia-current-updates/libGL.so.1", // Ubuntu 12.04 32-bit NVIDIA
         "/usr/lib32/nvidia-current/libGL.so.1",       // Ubuntu NVIDIA
         "/usr/lib32/libGL.so.1",                      // Ubuntu
